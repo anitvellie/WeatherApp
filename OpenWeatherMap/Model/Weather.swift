@@ -41,23 +41,35 @@ struct WeatherDescription: Codable, CustomStringConvertible {
 struct MainParameter: Codable, CustomStringConvertible {
     
     var description: String {
-        return "Temperature: \(temperature - 272)\n"
-            + "Max: \(maximumTemperature - 272), min: \(minimumTemperature - 272)\n"
+        return "Temperature: \(temperatureKelvin) ºK, \(getTemperatureCelsius()) ºC\n"
+            + "Max: \(maximumTemperatureKelvin) ºK, \(getMaxTemperatureCelsius()) ºC, min: \(minimumTemperatureKelvin) ºK, \(getMinTemperatureCelsius()) ºC\n"
             + "Pressure: \(pressure)\n" + "Humidity: \(humidity)\n"
     }
     
-    var temperature: Float
+    var temperatureKelvin: Float
     var pressure: Float
     var humidity: Int
-    var maximumTemperature: Float
-    var minimumTemperature: Float
+    var maximumTemperatureKelvin: Float
+    var minimumTemperatureKelvin: Float
+    
+    func getTemperatureCelsius() -> Float {
+        return temperatureKelvin - 273.15
+    }
+    
+    func getMaxTemperatureCelsius() -> Float {
+        return maximumTemperatureKelvin - 273.15
+    }
+    
+    func getMinTemperatureCelsius() -> Float {
+        return minimumTemperatureKelvin - 273.15
+    }
 
     private enum CodingKeys: String, CodingKey {
-        case temperature = "temp"
+        case temperatureKelvin = "temp"
         case pressure
         case humidity
-        case maximumTemperature = "temp_max"
-        case minimumTemperature = "temp_min"
+        case maximumTemperatureKelvin = "temp_max"
+        case minimumTemperatureKelvin = "temp_min"
     }
     
 }
