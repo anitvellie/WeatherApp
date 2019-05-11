@@ -81,7 +81,7 @@ struct Wind: Codable, CustomStringConvertible {
     }
     
     var speed: Float
-    var degree: Int
+    var degree: Float
     
     private enum CodingKeys: String, CodingKey {
         case speed
@@ -96,7 +96,7 @@ struct Clouds: Codable, CustomStringConvertible {
         return "Cloud percentage: \(percentage)\n"
     }
     
-    var percentage: Int
+    var percentage: Float
     
     private enum CodingKeys: String, CodingKey {
         case percentage = "all"
@@ -141,14 +141,14 @@ struct Snow: Codable, CustomStringConvertible {
 struct Weather: Codable, CustomStringConvertible {
     
     var description: String {
-        var tmpDescription = "Weather in \(name):\n" + coordinate.description
+        var tmpDescription = "Weather in \(city):\n" + coordinate.description
         weatherDescription.forEach {
             tmpDescription.append( $0.description )
         }
         tmpDescription.append(mainParameter.description)
         tmpDescription.append("Visibility: \(visibility)\n")
         tmpDescription.append(clouds.description)
-        tmpDescription.append(wind.description)
+        tmpDescription.append(wind?.description ?? "")
         tmpDescription.append(rain?.description ?? "")
         tmpDescription.append(snow?.description ?? "")
         return tmpDescription
@@ -159,11 +159,11 @@ struct Weather: Codable, CustomStringConvertible {
     var weatherDescription: [WeatherDescription]
     var mainParameter: MainParameter
     var visibility: Int
-    var wind: Wind
+    var wind: Wind?
     var clouds: Clouds
     var rain: Rain?
     var snow: Snow?
-    var name: String
+    var city: String
     
     private enum CodingKeys: String, CodingKey {
         case coordinate = "coord"
@@ -174,7 +174,7 @@ struct Weather: Codable, CustomStringConvertible {
         case clouds
         case rain
         case snow
-        case name
+        case city = "name"
     }
     
 }
