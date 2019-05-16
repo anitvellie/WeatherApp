@@ -51,5 +51,128 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenWeatherMap/CityListTableViewController.swift"
+            timestampString = "579724172.340028"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "CityListTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherMap.CityListTableViewController.weathers.getter : Swift.Array&lt;OpenWeatherMap.Weather&gt;"
+                  moduleName = "OpenWeatherMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alevtina/Developer/OpenWeatherMap/OpenWeatherMap/CityListTableViewController.swift"
+                  timestampString = "579724009.104668"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherMap.CityListTableViewController.weathers.setter : Swift.Array&lt;OpenWeatherMap.Weather&gt;"
+                  moduleName = "OpenWeatherMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alevtina/Developer/OpenWeatherMap/OpenWeatherMap/CityListTableViewController.swift"
+                  timestampString = "579724009.107828"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherMap.CityListTableViewController.weathers.modify : Swift.Array&lt;OpenWeatherMap.Weather&gt;"
+                  moduleName = "OpenWeatherMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alevtina/Developer/OpenWeatherMap/OpenWeatherMap/CityListTableViewController.swift"
+                  timestampString = "579724009.110797"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherMap.CityListTableViewController.weathers.modify : Swift.Array&lt;OpenWeatherMap.Weather&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "OpenWeatherMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alevtina/Developer/OpenWeatherMap/OpenWeatherMap/CityListTableViewController.swift"
+                  timestampString = "579724009.114107"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherMap.CityListTableViewController.init(style: __C.UITableViewStyle) -&gt; OpenWeatherMap.CityListTableViewController"
+                  moduleName = "OpenWeatherMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alevtina/Developer/OpenWeatherMap/OpenWeatherMap/CityListTableViewController.swift"
+                  timestampString = "579724009.118243"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "347">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherMap.CityListTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; OpenWeatherMap.CityListTableViewController"
+                  moduleName = "OpenWeatherMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alevtina/Developer/OpenWeatherMap/OpenWeatherMap/CityListTableViewController.swift"
+                  timestampString = "579724009.122335"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "499">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherMap.CityListTableViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;OpenWeatherMap.CityListTableViewController&gt;"
+                  moduleName = "OpenWeatherMap"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alevtina/Developer/OpenWeatherMap/OpenWeatherMap/CityListTableViewController.swift"
+                  timestampString = "579724009.125391"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

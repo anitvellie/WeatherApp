@@ -23,14 +23,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         dataLoader = DataLoader()
-        dataLoader?.getWeather(for: "Cupertino") { returnWeather in
-            if let weather = returnWeather {
+        dataLoader?.getWeather(for: "Paris", completion: { (weather) in
+            if let weatherNotOptional = weather {
                 DispatchQueue.main.async {
-                    self.cityLabel.text = weather.city
-                    self.temperatureLabel.text = String(weather.mainParameter.getTemperatureCelsius())
-                    self.weatherDescriptionLabel.text = weather.weatherDescription.first?.fullDescription
+                    self.cityLabel.text = weatherNotOptional.city
                 }
             }
-        }
+        })
     }
 }
