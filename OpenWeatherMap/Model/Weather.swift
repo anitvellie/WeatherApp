@@ -31,10 +31,12 @@ struct WeatherDescription: Codable, CustomStringConvertible {
     
     var main: String
     var fullDescription: String
+    var icon: String
     
     private enum CodingKeys: String, CodingKey {
         case main
         case fullDescription = "description"
+        case icon
     }
 }
 
@@ -77,11 +79,11 @@ struct MainParameter: Codable, CustomStringConvertible {
 struct Wind: Codable, CustomStringConvertible {
     
     var description: String {
-        return "Wind speed: \(speed), degree: \(degree)\n"
+        return "Wind speed: \(speed ?? 0), degree: \(degree ?? 0)\n"
     }
     
-    var speed: Float
-    var degree: Float
+    var speed: Float?
+    var degree: Float?
     
     private enum CodingKeys: String, CodingKey {
         case speed

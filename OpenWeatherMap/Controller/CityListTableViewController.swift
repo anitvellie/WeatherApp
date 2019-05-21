@@ -49,10 +49,22 @@ class CityListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-        cell.textLabel?.text = weathers[indexPath.row].city
-        cell.detailTextLabel?.text = String(weathers[indexPath.row].mainParameter.getTemperatureCelsius())
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as? CityTableViewCell {
+            cell.cityLabel.text = weathers[indexPath.row].city
+            cell.degreeLabel.text = String(weathers[indexPath.row].mainParameter.getTemperatureCelsius().rounded())
+            dataLoader.getIcon(for: weathers[indexPath.row]) { image in
+                DispatchQueue.main.async {
+                    cell.weatherIcon.image = image
+                }
+            }
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+//        cell.textLabel?.text = weathers[indexPath.row].city
+//        cell.detailTextLabel?.text = String(weathers[indexPath.row].mainParameter.getTemperatureCelsius())
+        
+        
     }
     
 
