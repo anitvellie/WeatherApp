@@ -54,16 +54,16 @@ struct MainParameter: Codable, CustomStringConvertible {
     var maximumTemperatureKelvin: Float
     var minimumTemperatureKelvin: Float
     
-    func getTemperatureCelsius() -> Float {
-        return temperatureKelvin - 273.15
+    func getTemperatureCelsius() -> Int {
+        return Int((temperatureKelvin - 273.15).rounded())
     }
     
-    func getMaxTemperatureCelsius() -> Float {
-        return maximumTemperatureKelvin - 273.15
+    func getMaxTemperatureCelsius() -> Int {
+        return Int((maximumTemperatureKelvin - 273.15).rounded())
     }
     
-    func getMinTemperatureCelsius() -> Float {
-        return minimumTemperatureKelvin - 273.15
+    func getMinTemperatureCelsius() -> Int {
+        return Int((minimumTemperatureKelvin - 273.15).rounded())
     }
 
     private enum CodingKeys: String, CodingKey {

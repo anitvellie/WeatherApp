@@ -16,7 +16,6 @@ class CityTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +23,11 @@ class CityTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+extension CityTableViewCell {
+    struct SizeRatio {
+        static let cityFontSize: CGFloat = 25
+        static let degreeFontSize: CGFloat = 35
+    }
 }

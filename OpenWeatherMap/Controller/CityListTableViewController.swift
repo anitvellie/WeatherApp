@@ -10,7 +10,7 @@ import UIKit
 
 class CityListTableViewController: UITableViewController {
     
-    let listOfCityNames = ["Kaliningrad", "Moscow", "London", "Paris", "Warsaw"]
+    let listOfCityNames = ["Kaliningrad", "Moscow", "London", "Paris", "Warsaw", "Brighton", "Barcelona", "Dublin", "Berlin"]
     var weathers = [Weather]()
     
     var dataLoader: IDataLoader = DataLoader()
@@ -22,7 +22,6 @@ class CityListTableViewController: UITableViewController {
         listOfCityNames.forEach {
             dataLoader.getWeather(for: $0, completion: { [weak self] weather in
                 if let weatherForCity = weather {
-                    print(weatherForCity)
                     self?.weathers.append(weatherForCity)
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
@@ -30,6 +29,7 @@ class CityListTableViewController: UITableViewController {
                 }
             })
         }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -51,12 +51,20 @@ class CityListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as? CityTableViewCell {
             cell.cityLabel.text = weathers[indexPath.row].city
-            cell.degreeLabel.text = String(weathers[indexPath.row].mainParameter.getTemperatureCelsius().rounded())
+            cell.degreeLabel.text = "\(weathers[indexPath.row].mainParameter.getTemperatureCelsius())º"
             dataLoader.getIcon(for: weathers[indexPath.row]) { image in
                 DispatchQueue.main.async {
                     cell.weatherIcon.image = image
                 }
             }
+            let fontMetrics = UIFontMetrics(forTextStyle: .body)
+            
+            let cityFont = UIFont.systemFont(ofSize: CityTableViewCell.SizeRatio.cityFontSize, weight: .light)
+            cell.cityLabel.font = fontMetrics.scaledFont(for: cityFont)
+            
+            let degreeFont = UIFont.systemFont(ofSize: CityTableViewCell.SizeRatio.degreeFontSize, weight: .light)
+            cell.degreeLabel.font = fontMetrics.scaledFont(for: degreeFont)
+            
             return cell
         } else {
             return UITableViewCell()
