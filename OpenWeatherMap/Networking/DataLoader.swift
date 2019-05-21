@@ -65,10 +65,6 @@ class DataLoader: IDataLoader {
                         print("Server error occured.")
                         return
                     }
-                    guard let mime = response?.mimeType, mime == "application/json" else {
-                        print("Wrong mime type.")
-                        return
-                    }
                     guard let data = data else {
                         print("Could not get data.")
                         return
