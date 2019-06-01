@@ -8,14 +8,26 @@
 
 import Foundation
 
+struct City: Codable, CustomStringConvertible {
+    
+    let name: String
+    let country: String
+    
+    var description: String {
+        return "\(name): \(country)"
+    }
+}
+
+typealias CityList = [City]
+
 struct Coordinate: Codable, CustomStringConvertible {
     
     var description: String {
         return "Coordinates: \(longitude) lon, \(latitude) lat\n"
     }
     
-    var longitude: Float
-    var latitude: Float
+    let longitude: Float
+    let latitude: Float
     
     private enum CodingKeys: String, CodingKey {
         case longitude = "lon"
@@ -29,9 +41,9 @@ struct WeatherDescription: Codable, CustomStringConvertible {
         return "Weather: \(main)\n\(fullDescription)\n"
     }
     
-    var main: String
-    var fullDescription: String
-    var icon: String
+    let main: String
+    let fullDescription: String
+    let icon: String
     
     private enum CodingKeys: String, CodingKey {
         case main
@@ -48,11 +60,11 @@ struct MainParameter: Codable, CustomStringConvertible {
             + "Pressure: \(pressure)\n" + "Humidity: \(humidity)\n"
     }
     
-    var temperatureKelvin: Float
-    var pressure: Float
-    var humidity: Int
-    var maximumTemperatureKelvin: Float
-    var minimumTemperatureKelvin: Float
+    let temperatureKelvin: Float
+    let pressure: Float
+    let humidity: Int
+    let maximumTemperatureKelvin: Float
+    let minimumTemperatureKelvin: Float
     
     func getTemperatureCelsius() -> Int {
         return Int((temperatureKelvin - 273.15).rounded())
@@ -82,8 +94,8 @@ struct Wind: Codable, CustomStringConvertible {
         return "Wind speed: \(speed ?? 0), degree: \(degree ?? 0)\n"
     }
     
-    var speed: Float?
-    var degree: Float?
+    let speed: Float?
+    let degree: Float?
     
     private enum CodingKeys: String, CodingKey {
         case speed
@@ -98,7 +110,7 @@ struct Clouds: Codable, CustomStringConvertible {
         return "Cloud percentage: \(percentage)\n"
     }
     
-    var percentage: Float
+    let percentage: Float
     
     private enum CodingKeys: String, CodingKey {
         case percentage = "all"
@@ -113,8 +125,8 @@ struct Rain: Codable, CustomStringConvertible {
             + "Volume of rain in last 3 hours: \(volumeLastThreeHours)"
     }
     
-    var volumeLastHour: Float
-    var volumeLastThreeHours: Float
+    let volumeLastHour: Float
+    let volumeLastThreeHours: Float
     
     private enum CodingKeys: String, CodingKey {
         case volumeLastHour = "1h"
@@ -130,8 +142,8 @@ struct Snow: Codable, CustomStringConvertible {
             + "Volume of snow in last 3 hours: \(volumeLastThreeHours)"
     }
     
-    var volumeLastHour: Float
-    var volumeLastThreeHours: Float
+    let volumeLastHour: Float
+    let volumeLastThreeHours: Float
     
     private enum CodingKeys: String, CodingKey {
         case volumeLastHour = "1h"
@@ -157,15 +169,15 @@ struct Weather: Codable, CustomStringConvertible {
     }
     
     
-    var coordinate: Coordinate
-    var weatherDescription: [WeatherDescription]
-    var mainParameter: MainParameter
-    var visibility: Int
-    var wind: Wind?
-    var clouds: Clouds
-    var rain: Rain?
-    var snow: Snow?
-    var city: String
+    let coordinate: Coordinate
+    let weatherDescription: [WeatherDescription]
+    let mainParameter: MainParameter
+    let visibility: Int
+    let wind: Wind?
+    let clouds: Clouds
+    let rain: Rain?
+    let snow: Snow?
+    let city: String
     
     private enum CodingKeys: String, CodingKey {
         case coordinate = "coord"

@@ -12,11 +12,14 @@ class CityListTableViewController: UITableViewController {
     
     let listOfCityNames = ["Kaliningrad", "Moscow", "London", "Paris", "Warsaw", "Brighton", "Barcelona", "Dublin", "Berlin"]
     var weathers = [Weather]()
+
     
     var dataLoader: IDataLoader = DataLoader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         dataLoader = DataLoader()
         listOfCityNames.forEach {
@@ -29,12 +32,6 @@ class CityListTableViewController: UITableViewController {
                 }
             })
         }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -47,7 +44,6 @@ class CityListTableViewController: UITableViewController {
         return weathers.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as? CityTableViewCell {
             cell.cityLabel.text = weathers[indexPath.row].city
@@ -69,10 +65,6 @@ class CityListTableViewController: UITableViewController {
         } else {
             return UITableViewCell()
         }
-//        cell.textLabel?.text = weathers[indexPath.row].city
-//        cell.detailTextLabel?.text = String(weathers[indexPath.row].mainParameter.getTemperatureCelsius())
-        
-        
     }
     
 

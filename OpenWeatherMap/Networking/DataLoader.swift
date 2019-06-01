@@ -78,6 +78,24 @@ class DataLoader: IDataLoader {
             }
         }
     }
+    
+    func validateCity(_ string: String) {
+        let cityListFile = "city.list"
+        if let jsonPath = Bundle.main.path(forResource: cityListFile, ofType: ".json", inDirectory: nil),
+            let jsonData = NSData(contentsOfFile: jsonPath) as Data? {
+            do {
+                let listOfCities = try JSONDecoder().decode(CityList.self, from: jsonData)
+                let filteredResult = listOfCities.filter {
+                    $0.name.contains("Mos")
+                }
+                filteredResult.forEach {
+                    print($0.name)
+                }
+            } catch let error {
+                print("Could not get data from \(cityListFile).json: \(error)")
+            }
+        }
+    }
 
     
 }
