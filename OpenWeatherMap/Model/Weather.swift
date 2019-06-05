@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CityList = [City]
+
 struct City: Codable, CustomStringConvertible {
     
     let name: String
@@ -17,8 +19,6 @@ struct City: Codable, CustomStringConvertible {
         return "\(name): \(country)"
     }
 }
-
-typealias CityList = [City]
 
 struct Coordinate: Codable, CustomStringConvertible {
     

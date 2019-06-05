@@ -16,19 +16,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
-    var dataLoader: DataLoader?
+    var dataLoader: WeatherDataLoader?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataLoader = DataLoader()
-        dataLoader?.getWeather(for: "Paris", completion: { (weather) in
-            if let weatherNotOptional = weather {
-                DispatchQueue.main.async {
-                    self.cityLabel.text = weatherNotOptional.city
-                }
-            }
-        })
+//        dataLoader = DataLoader()
+//        dataLoader?.getWeather(for: "Paris", completion: { (weather) in
+//            if let weatherNotOptional = weather {
+//                DispatchQueue.main.async {
+//                    self.cityLabel.text = weatherNotOptional.city
+//                }
+//            }
+//        })
     }
 }
