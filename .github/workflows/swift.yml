@@ -17,6 +17,4 @@ jobs:
       run: swift build -v
     - name: Run tests
       run: swift test -v
-    - name: GitHub Action for SwiftLint
-      uses: norio-nomura/action-swiftlint@3.1.0
           
