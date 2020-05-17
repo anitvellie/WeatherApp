@@ -9,9 +9,12 @@
 struct MainParameter: Codable, CustomStringConvertible {
 
     var description: String {
-        return "Temperature: \(temperatureKelvin) ºK, \(getTemperatureCelsius()) ºC\n"
-            + "Max: \(maximumTemperatureKelvin) ºK, \(getMaxTemperatureCelsius()) ºC, min: \(minimumTemperatureKelvin) ºK, \(getMinTemperatureCelsius()) ºC\n"
-            + "Pressure: \(pressure)\n" + "Humidity: \(humidity)\n"
+        return """
+        Temperature: \(temperatureKelvin) ºK, \(getTemperatureCelsius()) ºC\n
+        Max: \(maximumTemperatureKelvin) ºK, \(getMaxTemperatureCelsius()) ºC,
+        min: \(minimumTemperatureKelvin) ºK, \(getMinTemperatureCelsius()) ºC\n
+        Pressure: \(pressure)\n" + "Humidity: \(humidity)\n
+        """
     }
 
     let temperatureKelvin: Float
