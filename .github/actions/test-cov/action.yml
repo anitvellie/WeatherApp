@@ -1,0 +1,6 @@
+name: 'Test Coverage'
+description: 'Code Coverage Report'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile' 
