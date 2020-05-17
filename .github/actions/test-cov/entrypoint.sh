@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+swift test --enable-code-coverage
+
 BIN_PATH="$(swift build --show-bin-path)"
 XCTEST_PATH="$(find ${BIN_PATH} -name '*.xctest')"
  
