@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import OpenWeatherMap
+
 class OpenWeatherMapTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -21,6 +23,11 @@ class OpenWeatherMapTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        let counter = CounterService()
+
+        XCTAssertEqual(counter.sum(3, 4), 7)
+        XCTAssertEqual(counter.sum(-3, 4), 1)
     }
 
     func testPerformanceExample() throws {
