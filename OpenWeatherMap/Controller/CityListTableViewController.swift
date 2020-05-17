@@ -9,15 +9,23 @@
 import UIKit
 
 class CityListTableViewController: UITableViewController {
-    
-    private let listOfCityNames = ["Kaliningrad", "Moscow", "London", "Paris", "Warsaw", "Brighton", "Barcelona", "Dublin", "Berlin"]
+
+    private let listOfCityNames = ["Kaliningrad",
+                                   "Moscow",
+                                   "London",
+                                   "Paris",
+                                   "Warsaw",
+                                   "Brighton",
+                                   "Barcelona",
+                                   "Dublin",
+                                   "Berlin"]
     private var weathers = [Weather]()
 
     var dataLoader: DataLoader?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         listOfCityNames.forEach {
             dataLoader?.getWeather(for: $0, completion: { [weak self] weather in
                 if let weatherForCity = weather {
@@ -29,7 +37,7 @@ class CityListTableViewController: UITableViewController {
             })
         }
     }
-    
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,14 +52,10 @@ class CityListTableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     cell.weatherIcon.image = image
                 }
-            }          
+            }
             return cell
         } else {
             return UITableViewCell()
         }
     }
-    
-
-
-
 }

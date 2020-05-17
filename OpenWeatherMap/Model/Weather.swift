@@ -7,7 +7,7 @@
 //
 
 struct Weather: Codable, CustomStringConvertible {
-    
+
     var description: String {
         var tmpDescription = "Weather in \(city):\n" + coordinate.description
         weatherDescription.forEach {
@@ -21,8 +21,7 @@ struct Weather: Codable, CustomStringConvertible {
         tmpDescription.append(snow?.description ?? "")
         return tmpDescription
     }
-    
-    
+
     let coordinate: Coordinate
     let weatherDescription: [WeatherDescription]
     let mainParameter: MainParameter
@@ -32,7 +31,7 @@ struct Weather: Codable, CustomStringConvertible {
     let rain: Rain?
     let snow: Snow?
     let city: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case coordinate = "coord"
         case weatherDescription = "weather"
@@ -44,7 +43,4 @@ struct Weather: Codable, CustomStringConvertible {
         case snow
         case city = "name"
     }
-    
 }
-
-

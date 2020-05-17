@@ -10,35 +10,35 @@ import Foundation
 import UIKit
 
 protocol DataLoader {
-    
+
     func getWeather(for city: String, completion: @escaping ((Weather?) -> Void))
     func getIcon(for weather: Weather, completion: @escaping ((UIImage) -> Void))
-    
+
 }
 
 class WeatherDataLoader: DataLoader {
-    
+
     private let session: URLSession
-    
-    // FIXME: Are these considered to be dependecies too?
+
     private let apiKey = "&appid=0295bb22612e4778084352c2e53a8230"
     private let urlString = "https://api.openweathermap.org/data/2.5/weather?q="
     private let iconURL = "http://openweathermap.org/img/w/"
     private let iconURLAppendix = ".png"
-    
+
     init(session: URLSession) {
         self.session = session
     }
-    
+
     func getWeather(for city: String, completion: @escaping ((Weather?) -> Void)) {
-    
         if let url = URL(string: "\(urlString)\(city)\(apiKey)") {
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     print("Error: \(error!)")
                     return
                 }
-                guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+
+                guard let httpResponse = response as? HTTPURLResponse,
+                    (200...299).contains(httpResponse.statusCode) else {
                     print("Server error occured.")
                     return
                 }
@@ -58,7 +58,7 @@ class WeatherDataLoader: DataLoader {
             task.resume()
         }
     }
-    
+
     func getIcon(for weather: Weather, completion: @escaping ((UIImage) -> Void)) {
         if let iconId = weather.weatherDescription.first?.icon {
             if let url = URL(string: "\(iconURL)\(iconId)\(iconURLAppendix)") {
@@ -67,7 +67,8 @@ class WeatherDataLoader: DataLoader {
                         print("Error: \(error!)")
                         return
                     }
-                    guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                    guard let httpResponse = response as? HTTPURLResponse,
+                        (200...299).contains(httpResponse.statusCode) else {
                         print("Server error occured.")
                         return
                     }
@@ -84,7 +85,7 @@ class WeatherDataLoader: DataLoader {
             }
         }
     }
-    
+
     func validateCity(_ string: String) {
         let cityListFile = "city.list"
         if let jsonPath = Bundle.main.path(forResource: cityListFile, ofType: ".json", inDirectory: nil),
@@ -102,6 +103,4 @@ class WeatherDataLoader: DataLoader {
             }
         }
     }
-
-    
 }

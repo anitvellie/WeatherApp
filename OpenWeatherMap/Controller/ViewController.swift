@@ -11,17 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: - Storyboard
-    
+
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
-    
+
     var dataLoader: WeatherDataLoader?
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 //        dataLoader = DataLoader()
 //        dataLoader?.getWeather(for: "Paris", completion: { (weather) in
 //            if let weatherNotOptional = weather {

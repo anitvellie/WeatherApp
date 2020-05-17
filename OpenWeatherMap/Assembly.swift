@@ -10,24 +10,27 @@ import Foundation
 import UIKit
 
 class Assembly {
-    
+
     let session: URLSession
     let dataLoader: DataLoader
     let storyboard: UIStoryboard
-    
-    // FIXME: What type should VC be? UIViewController?
+
     let cityListTableViewController: CityListTableViewController
-    
+
     init() {
-        
         storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+
         session = URLSession.shared
         dataLoader = WeatherDataLoader(session: session)
-        
-        cityListTableViewController = storyboard.instantiateViewController(withIdentifier: "cityListTableViewController") as! CityListTableViewController
+
+        guard let tableViewController = storyboard
+            .instantiateViewController(withIdentifier: "cityListTableViewController") as? CityListTableViewController
+            else {
+                self.cityListTableViewController = CityListTableViewController()
+                return
+        }
+
+        cityListTableViewController = tableViewController
         cityListTableViewController.dataLoader = dataLoader
-        
     }
-    
 }

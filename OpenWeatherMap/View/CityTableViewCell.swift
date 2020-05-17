@@ -9,11 +9,11 @@
 import UIKit
 
 class CityTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var degreeLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
