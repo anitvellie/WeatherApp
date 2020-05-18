@@ -23,14 +23,7 @@ class Assembly {
         session = URLSession.shared
         dataLoader = WeatherDataLoader(session: session)
 
-        guard let tableViewController = storyboard
-            .instantiateViewController(withIdentifier: "cityListTableViewController") as? CityListTableViewController
-            else {
-                self.cityListTableViewController = CityListTableViewController()
-                return
-        }
-
-        cityListTableViewController = tableViewController
+        cityListTableViewController = storyboard.instantiateViewController(withIdentifier: "cityListTableViewController") as! CityListTableViewController
         cityListTableViewController.dataLoader = dataLoader
     }
 }
